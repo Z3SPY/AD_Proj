@@ -5,7 +5,7 @@ import { defineProps } from 'vue';
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import { reactive,ref } from 'vue'
+import { reactive,ref, computed } from 'vue'
 
   const form=reactive({
       origin: "",
@@ -16,8 +16,12 @@ import { reactive,ref } from 'vue'
      
       router.post(route("busroutes.store"),form);
   }
-  defineProps({
+  const props = defineProps({
     locations: Object,
+})
+
+const filteredLocations = computed(() => {
+    return props.locations.filter(location => location.location !== form.origin);
 })
 
 
@@ -43,7 +47,7 @@ import { reactive,ref } from 'vue'
 
                                  <InputLabel for="destination" class="block font-medium text-gray-700">Select Destination </InputLabel>
                                 <select id="route" v-model="form.destination" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:outline-none focus:border-indigo-500">
-                                    <option v-for="location in locations"  :value="location.location">
+                                    <option v-for="location in filteredLocations"  :value="location.location">
                                         {{ location.location }}</option>
                                  </select>
                             </div>
