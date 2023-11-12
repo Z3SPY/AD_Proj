@@ -13,19 +13,19 @@ import { Head } from '@inertiajs/vue3';
             <div class="p-6 dark:border-gray-700 mt-14 bg-blue-400">
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src="storage/images/carousel1.jpg" alt="">
+                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src="storage/images/carousel2.jpg" alt="">
+                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src="storage/images/carousel3.jpg" alt="">
+                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src="storage/images/carousel1.png" alt="">
+                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
                     </div>
                     <div>
-                        <img class="h-auto max-w-full rounded-lg" src="storage/images/carousel1.png" alt="">
+                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
                     </div>
                 </div>
             </div>

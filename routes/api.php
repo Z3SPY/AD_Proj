@@ -23,19 +23,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('locations', [LocationController::class, 'indexAPI'])->name('locations');
+Route::get('/locations', [LocationController::class, 'indexAPI'])->name('locations');
 
-Route::get('schedules', [BusScheduleController::class, 'indexAPI'])->name('schedules');
+Route::get('/schedules', [BusScheduleController::class, 'indexAPI'])->name('schedules');
 
 
-Route::get('user/{email}', [UserController::class, 'getUser'])->name('getUser');
+Route::get('/user/{email}', [UserController::class, 'getUser'])->name('getUser');
 
-Route::post('login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'login'])->name('login');
 
-Route::post('saveUser', [UserController::class, 'saveUser'])->name('saveUser');
-Route::post('reserve_schedule', [BusScheduleController::class, 'reserve'])->name('reserve_schedule');
+Route::post('/saveUser', [UserController::class, 'saveUser'])->name('saveUser');
+Route::post('/reserve_schedule', [BusScheduleController::class, 'reserve'])->name('reserve_schedule');
 
-Route::post('reservations', [ReservationsController::class, 'showAPI'])->name('reservations');
+Route::post('/reservations', [ReservationsController::class, 'showAPI'])->name('reservations');
 
 
 
