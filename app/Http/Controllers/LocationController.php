@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Location;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
+use Illuminate\Validation\Rule;
 
 class LocationController extends Controller
 {
@@ -36,6 +37,14 @@ class LocationController extends Controller
      */
     public function store()
     {
+
+        Request::validate([
+            'location' => [
+                'required',
+                Rule::unique('locations', 'location')
+            ],
+            ]);
+
         Location::create([
             "location"=> Request::get("location"),
         ]);
