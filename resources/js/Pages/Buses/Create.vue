@@ -48,12 +48,10 @@ import TextInput from '@/Components/TextInput.vue'
                                  </select>
 
                                 <InputLabel for="capacity"  class="block w-1/2 mt-5" value="Capacity"/>
-                                <TextInput
-                                    id="capacity"
-                                    type="number"
-                                    v-model="form.capacity"
-                                    required
-                                />
+                                 <select id="capacity" v-model="form.capacity" class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:outline-none focus:border-indigo-500">
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                 </select>
                                 <div class=" py-3 md:w-1/3">
                                 <PrimaryButton type="submit"> Submit  </PrimaryButton>
                                 </div>

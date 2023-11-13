@@ -20,9 +20,26 @@ defineProps({
   })
 
   function submit() {
+    if (!validateArrivalTime()) {
+    // Return to prevent the form from being submitted
+    return;
+  }
 
      router.post(route("schedule.store"),form);
   }
+
+  function validateArrivalTime() {
+  const departureTime = form.departure_time;
+  const arrivalTime = form.arrival_time;
+
+  if (arrivalTime < departureTime) {
+    // Display an error message to the user
+    alert('Arrival time must be after departure time');
+    return false;
+  }
+
+  return true;
+}
 
 
 </script>
