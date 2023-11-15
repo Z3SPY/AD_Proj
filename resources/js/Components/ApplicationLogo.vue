@@ -1,3 +1,3 @@
 <template>
-          <img src="/storage/partas_logo.png"  >
+    <img src="/storage/partas_logo.png" />
 </template>

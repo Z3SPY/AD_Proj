@@ -1,0 +1,19 @@
+:root {
+    --primary: "#FCF5ED";
+    --secondary: "#F4BF96";
+    --accent: "#CE5A67";
+    --dark: "#1F1717";
+}
+
+.selected {
+    color: "#FFFF" !important;
+}
+
+li:has(> .selected) {
+    background-color: black;
+    border-radius: 50rem;
+}
+
+.NavBar ul li a {
+    color: "#F4BF96" !important;
+}

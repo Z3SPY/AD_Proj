@@ -1,34 +1,32 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import Carousel from '@/Components/Carousel.vue';
-import { Head } from '@inertiajs/vue3';
-
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import Carousel from "@/Components/Carousel.vue";
+import { Head } from "@inertiajs/vue3";
 </script>
 
 <template>
     <Head title="Dashboard" />
 
     <AuthenticatedLayout>
-        <div class="flex justify-center">
-            <div class="p-6 dark:border-gray-700 mt-14 bg-blue-400">
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
-                    </div>
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
-                    </div>
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
-                    </div>
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
-                    </div>
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src="/storage/Partas.jpeg" alt="">
-                    </div>
-                </div>
-            </div>
-    </div>
+        <div>
+            <h1
+                class="text-white text-6xl w-[25vw] break-words italic tracking-wide leading-snug"
+            >
+                BUS TRACKING MANAGEMENT
+            </h1>
+        </div>
+
+        <div class="flex justify-center flex-wrap [&>div]:m-2 pt-5">
+            <div
+                class="bg-gray-700 rounded-2xl w-[40rem] h-[20rem] flex-grow"
+            ></div>
+            <div class="bg-gray-700 rounded-2xl w-[20rem] h-[20rem]"></div>
+            <div class="bg-gray-700 rounded-2xl w-[20rem] h-[20rem]"></div>
+
+            <div
+                class="bg-gray-700 rounded-2xl w-[40rem] h-[20rem] flex-grow"
+            ></div>
+            <div class="bg-gray-700 rounded-2xl w-[20rem] h-[20rem]"></div>
+        </div>
     </AuthenticatedLayout>
 </template>
