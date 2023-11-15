@@ -12,11 +12,13 @@ import { Head } from "@inertiajs/vue3";
             <h1
                 class="text-white text-6xl w-[25vw] break-words italic tracking-wide leading-snug"
             >
-                BUS TRACKING MANAGEMENT
+                PARTAS ADMIN MANAGER
             </h1>
         </div>
 
-        <div class="flex justify-center flex-wrap [&>div]:m-2 pt-5">
+        <div
+            class="flex justify-center flex-wrap [&>div]:m-2 pt-5 [&>div]:max-h-[30rem]"
+        >
             <div
                 class="bg-gray-700 rounded-2xl w-[40rem] h-[20rem] flex-grow"
             ></div>
