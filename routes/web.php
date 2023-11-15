@@ -7,6 +7,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationsController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -30,6 +31,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -38,9 +40,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //Dashboard
+    //Route::get('/dashboard', [DashboardController::class, 'index'])->name('getItems');
+    
 
     // Bus Route
-    Route::get('busroutes', [BusrouteController::class, 'index'])->name('busroutes');
+    Route::get('busroutes', [BusrouteController::class, 'index'])->name('busroutes'); // Display List of Bus Routes
     Route::get('create_busroute', [BusrouteController::class, 'create'])->name('busroutes.create');
     Route::post('store_busroute', [BusrouteController::class, 'store'])->name('busroutes.store');
     Route::get('edit_busroute', [BusrouteController::class, 'edit'])->name('busroutes.edit');

@@ -18,7 +18,7 @@ class BusrouteController extends Controller
 
         $busroutes = Busroute::all();
         return Inertia::render('Busroutes/List',[
-            'busroutes' => $busroutes
+            'busroutes' => $busroutes //Get Bus Routes // PASSED TO DEFINE PROPS
         ]);
     }
 

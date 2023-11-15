@@ -2,7 +2,7 @@
 import { Link } from "@inertiajs/vue3";
 import "flowbite";
 import { ref } from "vue";
-import "../../css/navbar.css";
+import "../../css/general.css";
 
 const isDropdownVisible = ref(false);
 
