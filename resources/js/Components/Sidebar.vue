@@ -1,6 +1,7 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 import { ref } from "vue";
+import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 
 const isDropdownVisible = ref(false);
 const isSidebarOpen = ref(true);
@@ -35,18 +36,16 @@ function collapse() {
         >
             >>
         </button>
-        <a href="#" class="flex items-center p-5 space-x-3 rtl:space-x-reverse">
-            <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                class="h-8"
-                alt="Flowbite Logo"
-            />
-            <Link href="/dashboard">
-                <span
-                    class="self-center text-2xl font-semibold whitespace-nowrap text-primary"
-                    >Partas Bus Inc.</span
-                >
-            </Link>
+        <a
+            href="#"
+            class="flex flex-col items-center p-5 space-x-3 rtl:space-x-reverse"
+        >
+            <Link href="/dashboard" class="pb-10">
+                <img
+                    src="/storage/partas_logo.png"
+                    class="h-[15rem] absolute top-[-3rem] left-0"
+                    alt="Flowbite Logo"
+            /></Link>
         </a>
 
         <div class="h-full px-3 pb-4 overflow-y-auto bg-dark mt-5">

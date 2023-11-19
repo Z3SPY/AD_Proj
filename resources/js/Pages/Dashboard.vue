@@ -31,7 +31,7 @@ onMounted(() => {
     <AuthenticatedLayout>
         <div>
             <h1
-                class="text-white w-[40%] md:text-2xl lg:text-6xl break-words italic tracking-wide leading-snug"
+                class="ml-10 text-white w-[40%] md:text-2xl lg:text-6xl break-words italic tracking-wide leading-snug"
             >
                 PARTAS ADMIN MANAGER
             </h1>
