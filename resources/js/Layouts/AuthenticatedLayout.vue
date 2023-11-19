@@ -16,9 +16,14 @@ defineProps({
 <template>
     <div>
         <div class="min-h-screen bg-gray-100">
-            <Sidebar />
+            <Sidebar @childDataEvent="handleChildData" />
+
             <main class="bg-dark shadow">
-                <div class="p-4 h-auto min-h-[100vh] sm:ml-64">
+                <div
+                    :class="{ pog: !receivedData }"
+                    class="p-4 h-auto min-h-[100vh] sm:ml-64"
+                    id="main"
+                >
                     <div class="p-4 mt-14">
                         <slot />
                     </div>
@@ -27,3 +32,33 @@ defineProps({
         </div>
     </div>
 </template>
+
+<style scoped>
+#main.pog {
+    margin: 0;
+    transition: margin 0.5s ease-in-out;
+}
+
+#main {
+    transition: margin 0.5s ease-in-out;
+}
+</style>
+<script>
+export default {
+    components: {
+        Sidebar,
+    },
+    data() {
+        return {
+            receivedData: true,
+        };
+    },
+    methods: {
+        handleChildData(data) {
+            // Handle the data received from the child component
+            console.log(this.receivedData);
+            this.receivedData = data;
+        },
+    },
+};
+</script>

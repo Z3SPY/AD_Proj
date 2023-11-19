@@ -15,7 +15,7 @@ const squares = ref(null);
 onMounted(() => {
     //Place HOLDER Might Reduce to JUST 1-3 month
     const squaresElement = document.querySelector(".squares");
-    for (let i = 1; i < 365; i++) {
+    for (let i = 1; i < 90; i++) {
         const level = Math.floor(Math.random() * 3);
         squaresElement.insertAdjacentHTML(
             "beforeend",
@@ -57,21 +57,14 @@ onMounted(() => {
 
             <div class="bg-gray-700 rounded-2xl w-[20rem] h-auto"></div>
 
-            <div class="bg-gray-700 rounded-2xl w-[40rem] h-auto flex-grow">
+            <div
+                class="bg-gray-700 text-white rounded-2xl w-[40rem] h-auto flex-grow"
+            >
                 <div class="graph">
                     <ul class="months">
                         <li>Jan</li>
                         <li>Feb</li>
                         <li>Mar</li>
-                        <li>Apr</li>
-                        <li>May</li>
-                        <li>Jun</li>
-                        <li>Jul</li>
-                        <li>Aug</li>
-                        <li>Sep</li>
-                        <li>Oct</li>
-                        <li>Nov</li>
-                        <li>Dec</li>
                     </ul>
                     <ul class="days">
                         <li>Sun</li>

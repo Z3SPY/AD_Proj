@@ -3,19 +3,38 @@ import { Link } from "@inertiajs/vue3";
 import { ref } from "vue";
 
 const isDropdownVisible = ref(false);
+const isSidebarOpen = ref(true);
 
-function greet() {
+function dropDown() {
     isDropdownVisible.value = !isDropdownVisible.value;
     console.log("yo");
     // ... your other logic
+}
+
+function collapse() {
+    console.log("collapsing", isSidebarOpen.value);
+    isSidebarOpen.value = !isSidebarOpen.value;
 }
 </script>
 <template>
     <aside
         id="logo-sidebar"
+        :class="{ collapsed: !isSidebarOpen }"
         class="rounded-sm fixed top-0 left-0 z-40 w-64 h-screen pt-10 transition-transform-translate-x-full bg-dark border-r sm:translate-x-0 dark:bg-blue-400 border-gray-800"
         aria-label="Sidebar"
     >
+        <button
+            id="collapseBtn"
+            class="absolute font-bold tracking-tighter text-4xl top-0 left-[16rem] text-yellow-200 w-auto h-auto hover:bg-yellow-500 hover:text-white px-2 pb-2 rounded-3xl"
+            @click="
+                () => {
+                    collapse();
+                    sendData(isSidebarOpen);
+                }
+            "
+        >
+            >>
+        </button>
         <a href="#" class="flex items-center p-5 space-x-3 rtl:space-x-reverse">
             <img
                 src="https://flowbite.com/docs/images/logo.svg"
@@ -207,7 +226,7 @@ function greet() {
                     <!--Profile Button-->
                     <div>
                         <button
-                            @click="greet"
+                            @click="dropDown"
                             id="dropdownDefaultButton"
                             data-dropdown-toggle="dropdown"
                             class="w-full bg-primary text-dark hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-6 text-center inline-flex items-center"
@@ -308,3 +327,36 @@ function greet() {
         </div>
     </aside>
 </template>
+
+<style scoped>
+#logo-sidebar.collapsed {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+#logo-sidebar.collapsed #collapseBtn {
+    transform: scale(-1, 1);
+    transition: transform 0.5s ease-in-out;
+}
+
+#logo-sidebar {
+    transform: translateX(0%);
+    transition: transform 0.5s ease-in-out;
+}
+
+#logo-sidebar #collapseBtn {
+    transform: scale(1, 1);
+    transition: transform 0.5s ease-in-out;
+}
+</style>
+
+<script>
+export default {
+    methods: {
+        sendData(val) {
+            // Assuming you have some data in this.childData
+            this.$emit("childDataEvent", val);
+        },
+    },
+};
+</script>

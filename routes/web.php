@@ -11,6 +11,11 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+
+use App\Models\Busroute;
+use App\Models\Bus;
+use App\Models\BusSchedule;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +36,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-
-    return Inertia::render('Dashboard');
+    $busroutes = Busroute::all();
+    $bus = Bus::all();
+    $busschedule = BusSchedule::all();
+    return Inertia::render('Dashboard',[
+        'busroutes' => $busroutes,//Get Bus Routes // PASSED TO DEFINE PROPS
+        'bus' => $bus,
+        'busschedule' => $busschedule
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
