@@ -1,18 +1,18 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
+import ApplicationLogo from "@/Components/ApplicationLogo.vue";
+import { Link } from "@inertiajs/vue3";
 </script>
 
 <template>
-    <div class="min-h-screen bg-gradient-to-b from-green-400 to-blue-400 py-4 flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div
+        class="min-h-screen bg-gradient-to-b bg-dark py-4 flex flex-col sm:justify-center items-center pt-6 sm:pt-0"
+    >
         <div class="flex flex-row">
-        <div class="flex flex-row">
-            <Link href="/">
-                <ApplicationLogo class="w-48 h-48  text-gray-500" />
-            </Link>
-
-        </div>
-
+            <div class="flex flex-row">
+                <Link href="/">
+                    <ApplicationLogo class="w-64 h-64 text-gray-500" />
+                </Link>
+            </div>
         </div>
 
         <div

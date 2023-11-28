@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
 import Carousel from "@/Components/Carousel.vue";
+import "../../css/general.css";
 defineProps({
     canLogin: {
         type: Boolean,
@@ -17,11 +18,6 @@ defineProps({
             class="max-w-[95%] flex flex-wrap items-center justify-between mx-auto p-4"
         >
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    class="h-8"
-                    alt="Flowbite Logo"
-                />
                 <Link href="/dashboard">
                     <span
                         class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
@@ -55,7 +51,9 @@ defineProps({
                 </svg>
             </button>
 
-            <h1 class="self-center text-2xl font-semibold whitespace-nowrap">
+            <h1
+                class="text-2xl absolute left-[40%] font-semibold whitespace-nowrap"
+            >
                 TICKET RESERVATION SYSTEM
             </h1>
 
@@ -77,10 +75,12 @@ defineProps({
                             >
 
                             <template v-else>
-                                <div class="flex justify-between">
+                                <div
+                                    class="flex justify-between [&>*]:mx-2 [&>*]:bg-orange-400 [&>*]:px-10 [&>*]:h-[1.9rem]"
+                                >
                                     <Link
                                         :href="route('login')"
-                                        class="flex font-semibold text-xl text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        class="flex font-semibold text-xl text-white hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ defineProps({
                                     <Link
                                         v-if="canRegister"
                                         :href="route('register')"
-                                        class="flex ml-4 font-semibold text-xl text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        class="flex ml-4 font-semibold text-xl text-white hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -130,45 +130,39 @@ defineProps({
         </div>
     </nav>
 
-    <div class="p-6 dark:border-gray-700 mt-14 bg-blue-400">
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div>
-                <img
-                    class="h-auto max-w-full rounded-lg"
-                    src="/storage/Partas.jpeg"
-                    alt=""
-                />
+    <div
+        class="p-6 dark:border-gray-700 mt-14 bg-black min-h-screen max-h-screen"
+    >
+        <div class="container-fluid main">
+            <div
+                id="myCarousel"
+                class="carousel carousel-fade slide"
+                data-ride="carousel"
+                data-interval="3000"
+            >
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active background a"></div>
+                </div>
             </div>
-            <div>
-                <img
-                    class="h-auto max-w-full rounded-lg"
-                    src="/storage/Partas.jpeg"
-                    alt=""
-                />
-            </div>
-            <div>
-                <img
-                    class="h-auto max-w-full rounded-lg"
-                    src="/storage/Partas.jpeg"
-                    alt=""
-                />
-            </div>
-            <div>
-                <img
-                    class="h-auto max-w-full rounded-lg"
-                    src="/storage/Partas.jpeg"
-                    alt=""
-                />
-            </div>
-            <div>
-                <Carousel />
-            </div>
-            <div>
-                <img
-                    class="h-auto max-w-full rounded-lg"
-                    src="/storage/Partas.jpeg"
-                    alt=""
-                />
+
+            <div class="covertext">
+                <div class="col-lg-10" style="float: none; margin: 0 auto">
+                    <h1 class="title">PARTAS BUS INC</h1>
+                    <h3 class="subtitle">
+                        Journey Beyond Boundaries, Connecting Dreams and
+                        Destinations.
+                    </h3>
+                </div>
+                <div class="col-xs-12 explore">
+                    <a href="#"
+                        ><button
+                            type="button"
+                            class="btn btn-landing btn-lg explorebtn"
+                        >
+                            EXPLORE
+                        </button></a
+                    >
+                </div>
             </div>
         </div>
     </div>

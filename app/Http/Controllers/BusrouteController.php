@@ -6,6 +6,7 @@ use App\Models\Busroute;
 use App\Http\Requests\UpdateBusrouteRequest;
 use App\Models\Location;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
 class BusrouteController extends Controller
@@ -36,18 +37,28 @@ class BusrouteController extends Controller
      */
     public function store()
     {
-        Request::validate([
+        $validator = validator(Request::all(), [
             'origin' => 'required',
-            'destination' => 'required',
+            'destination' => [
+                'required',
+                Rule::unique('bus_routes')->where(function ($query) {
+                    return $query->where('origin', Request::get('origin'))
+                                 ->where('destination', Request::get('destination'));
+                }),
+            ],
         ]);
-
+    
+        if ($validator->fails()) {
+            // Validation failed, return with errors
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
 
         Busroute::create([
-            'origin' =>Request::get('origin'),
+            'origin' => Request::get('origin'),
             'destination' => Request::get('destination'),
         ]);
-        return to_route('busroutes')->with('success', 'New Route  created.');
 
+        return to_route('busroutes')->with('success', 'New Route created.');
     }
 
     /**
