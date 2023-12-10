@@ -13,7 +13,9 @@ defineProps({
 </script>
 
 <template>
-    <nav class="fixed top-0 z-50 w-full bg-gray-50 border-gray-200">
+    <nav
+        class="fixed top-0 z-50 w-full bg-transparent text-white navbar-background"
+    >
         <div
             class="max-w-[95%] flex flex-wrap items-center justify-between mx-auto p-4"
         >
@@ -51,13 +53,10 @@ defineProps({
                 </svg>
             </button>
 
-            <h1
-                class="text-2xl absolute left-[40%] font-semibold whitespace-nowrap"
+            <div
+                class="hidden w-full md:block md:w-auto p-0 m-0 mb-14"
+                id="navbar-solid-bg"
             >
-                TICKET RESERVATION SYSTEM
-            </h1>
-
-            <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
                 <ul
                     class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700"
                 >
@@ -76,11 +75,11 @@ defineProps({
 
                             <template v-else>
                                 <div
-                                    class="flex justify-between [&>*]:mx-2 [&>*]:bg-orange-400 [&>*]:px-10 [&>*]:h-[1.9rem]"
+                                    class="flex justify-between [&>*]:mx-2 [&>*]:p-5 [&>*]:rounded-xl [&>*]:h-[1.9rem]"
                                 >
                                     <Link
                                         :href="route('login')"
-                                        class="flex font-semibold text-xl text-white hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        class="flex items-center font-semibold text-xl text-white border-2 border-gray-500 hover:text-orange-400 hover:border-orange-400 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +101,7 @@ defineProps({
                                     <Link
                                         v-if="canRegister"
                                         :href="route('register')"
-                                        class="flex ml-4 font-semibold text-xl text-white hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        class="flex ml-4 items-center font-semibold text-xl text-white border-2 border-white hover:text-orange-400 hover:border-orange-400 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -130,9 +129,7 @@ defineProps({
         </div>
     </nav>
 
-    <div
-        class="p-6 dark:border-gray-700 mt-14 bg-black min-h-screen max-h-screen"
-    >
+    <div class="dark:border-gray-700 min-h-screen max-h-screen">
         <div class="container-fluid main">
             <div
                 id="myCarousel"
@@ -154,7 +151,7 @@ defineProps({
                     </h3>
                 </div>
                 <div class="col-xs-12 explore">
-                    <a href="#"
+                    <a href="#Testimonies"
                         ><button
                             type="button"
                             class="btn btn-landing btn-lg explorebtn"
@@ -166,6 +163,221 @@ defineProps({
             </div>
         </div>
     </div>
+
+    <div
+        id="Testimonies"
+        class="flex flex-col items-center justify-center w-full"
+    >
+        <h1 class="text-7xl m-0 p-0 italic">TESTIMONIES</h1>
+        <h2 class="text-2xl text-center w-[50vw] mt-5 text-gray-400">
+            Our customers love us! Read what they have to say below. Aliquam sed
+            justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.
+        </h2>
+        <div class="card-container w-[100vw] p-5 text-white mt-12 py-10">
+            <div
+                class="cards flex [&>*]:text-center [&>*]:p-5 [&>*]:pb-[10rem] [&>*]:rounded-3xl"
+            >
+                <div
+                    class="inner-card w-[25vw] bg-black flex flex-col items-center"
+                >
+                    <div
+                        class="pic w-[10rem] h-[10rem] bg-red-100 bg-cover mt-10"
+                        style="background-image: url('pic4.jpg')"
+                    ></div>
+                    <h1 class="text-2xl mt-10">John Doe</h1>
+                    <h2 class="text-xl">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit."
+                    </h2>
+                </div>
+
+                <!-- Testimony 2 -->
+                <div
+                    class="inner-card w-[25vw] bg-black flex flex-col items-center"
+                >
+                    <div
+                        class="pic w-[10rem] h-[10rem] bg-red-100 bg-cover mt-10"
+                        style="background-image: url('pic2.jpg')"
+                    ></div>
+                    <h1 class="text-2xl mt-10">Jane Smith</h1>
+                    <h2 class="text-xl">
+                        "Sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua."
+                    </h2>
+                </div>
+
+                <!-- Testimony 3 -->
+                <div
+                    class="inner-card w-[25vw] bg-black flex flex-col items-center"
+                >
+                    <div
+                        class="pic w-[10rem] h-[10rem] bg-red-100 bg-cover mt-10"
+                        style="background-image: url('pic3.jpg')"
+                    ></div>
+                    <h1 class="text-2xl mt-10">Alice Johnson</h1>
+                    <h2 class="text-xl">
+                        "Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris."
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        id="Display"
+        class="flex flex-col items-center w-screen h-[80vh] text-center mt-[50px] mx-auto"
+    >
+        <!--CAROUSEL ABOUT DESTINATION-->
+        <h1 class="text-7xl italic mb-10">VISIT DESTINATIONS</h1>
+        <h2 class="text-2xl text-center w-[50vw] mb-10 text-gray-400">
+            Explore the Unseen, Discover the Unforgettable: Visit Destinations
+        </h2>
+        <div>
+            <input checked id="one" name="multiples" type="radio" value="1" />
+            <label for="one">1</label>
+
+            <input id="two" name="multiples" type="radio" value="2" />
+            <label for="two">2</label>
+
+            <input id="three" name="multiples" type="radio" value="3" />
+            <label for="three">3</label>
+
+            <input id="four" name="multiples" type="radio" value="4" />
+            <label for="four">4</label>
+
+            <input id="five" name="multiples" type="radio" value="5" />
+            <label for="five">5</label>
+
+            <input id="six" name="multiples" type="radio" value="6" />
+            <label for="six">6</label>
+
+            <input id="seven" name="multiples" type="radio" value="7" />
+            <label for="seven">7</label>
+
+            <input id="eight" name="multiples" type="radio" value="8" />
+            <label for="eight">8</label>
+
+            <div class="container">
+                <div class="carousel-3D">
+                    <div
+                        class="card-img"
+                        style="background-image: url('1.jpg')"
+                    >
+                        <div
+                            class="text-8xl text-white items-center flex justify-center"
+                        >
+                            IFUGAO
+                        </div>
+                    </div>
+                    <div
+                        class="card-img"
+                        style="background-image: url('2.jpg')"
+                    >
+                        <div
+                            class="text-8xl text-white items-center flex justify-center"
+                        >
+                            PINATUBO
+                        </div>
+                    </div>
+                    <div
+                        class="card-img"
+                        style="background-image: url('3.jpg')"
+                    >
+                        <div
+                            class="text-8xl text-white items-center flex justify-center"
+                        >
+                            TAAL
+                        </div>
+                    </div>
+                    <div
+                        class="card-img"
+                        style="background-image: url('4.jpg')"
+                    >
+                        <div
+                            class="text-8xl text-white items-center flex justify-center"
+                        >
+                            BANGUI
+                        </div>
+                    </div>
+                    <div
+                        class="card-img"
+                        style="background-image: url('5.jpg')"
+                    >
+                        <div
+                            class="text-8xl text-white items-center flex justify-center"
+                        >
+                            MT PULAG
+                        </div>
+                    </div>
+                    <div
+                        class="card-img"
+                        style="background-image: url('6.jpg')"
+                    >
+                        <div
+                            class="text-8xl text-white items-center flex justify-center"
+                        >
+                            MAYON
+                        </div>
+                    </div>
+                    <div
+                        class="card-img"
+                        style="background-image: url('7.jpg')"
+                    >
+                        <div
+                            class="text-8xl text-white items-center flex justify-center"
+                        >
+                            EL NIDO
+                        </div>
+                    </div>
+                    <div
+                        class="card-img"
+                        style="background-image: url('8.jpg')"
+                    >
+                        <div
+                            class="text-7xl text-white items-center flex justify-center"
+                        >
+                            INTRAMUROS
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        id="AboutUs"
+        class="about-div flex flex-col items-center w-screen text-center my-[50px] mx-auto relative"
+    >
+        <div class="[&>p]:text-xl [&>h2]:text-7xl">
+            <div class="flex">
+                <div
+                    class="h-[50rem] w-[30vw] bg-red-50 bg-no-repeat bg-cover rounded-3xl"
+                    style="background-image: url('bus.jpg')"
+                ></div>
+                <div class="h-[50rem] w-auto">
+                    <h1 class="text-6xl italic mb-5">ABOUT US</h1>
+                    <h1 class="text-xl break-all px-40 w-[45vw]">
+                        Partas Bus Inc stands as a beacon of reliability and
+                        comfort in the realm of transportation. With a legacy
+                        built on safety and punctuality, we take pride in
+                        connecting communities and providing passengers with
+                        unparalleled travel experiences. Our commitment to
+                        excellence ensures that every journey with Partas Bus
+                        Inc is not just a ride but a seamless exploration of
+                        destinations.
+                    </h1>
+
+                    <h1 class="text-6xl italic mb-5 mt-11">OUR VISION</h1>
+                    <h1 class="text-xl break-all px-40 w-[45vw]">
+                        To be the preferred and most trusted bus company,
+                        providing exceptional travel experiences and setting the
+                        standard for excellence in the industry.
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ContactU"></div>
 </template>
 
 <style></style>
