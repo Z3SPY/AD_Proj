@@ -13,14 +13,14 @@ defineProps({
 </script>
 
 <template>
-    <nav class="fixed top-0 z-50 w-full bg-gray-50 border-gray-200">
+    <nav class="fixed top-0 z-50 w-full bg-indigo-500 border-gray-200">
         <div
             class="max-w-[95%] flex flex-wrap items-center justify-between mx-auto p-4"
         >
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <Link href="/dashboard">
                     <span
-                        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                        class="self-center text-2xl font-semibold whitespace-nowrap text-white"
                         >Partas Bus Inc</span
                     >
                 </Link>
@@ -52,7 +52,7 @@ defineProps({
             </button>
 
             <h1
-                class="text-2xl absolute left-[40%] font-semibold whitespace-nowrap"
+                class="text-2xl absolute left-[40%] font-semibold whitespace-nowrap text-white"
             >
                 TICKET RESERVATION SYSTEM
             </h1>
@@ -69,7 +69,7 @@ defineProps({
                             <Link
                                 v-if="$page.props.auth.user"
                                 :href="route('dashboard')"
-                                class="font-semibold text-2xl text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                class="font-semibold text-2xl text-white hover:underline text dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                             >
                                 Dashboard</Link
                             >
@@ -131,7 +131,7 @@ defineProps({
     </nav>
 
     <div
-        class="p-6 dark:border-gray-700 mt-14 bg-black min-h-screen max-h-screen"
+        class="p-6 dark:border-gray-700 mt-14 bg-gradient-to-b from-purple-400 to-blue-400 min-h-screen max-h-screen"
     >
         <div class="container-fluid main">
             <div
@@ -140,9 +140,6 @@ defineProps({
                 data-ride="carousel"
                 data-interval="3000"
             >
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active background a"></div>
-                </div>
             </div>
 
             <div class="covertext">

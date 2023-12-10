@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/vue3";
 
 <template>
     <div
-        class="min-h-screen bg-gradient-to-b bg-dark py-4 flex flex-col sm:justify-center items-center pt-6 sm:pt-0"
+        class="min-h-screen bg-gradient-to-b from-purple-400 to-blue-400 py-4 flex flex-col sm:justify-center items-center pt-6 sm:pt-0"
     >
         <div class="flex flex-row">
             <div class="flex flex-row">
@@ -16,7 +16,7 @@ import { Link } from "@inertiajs/vue3";
         </div>
 
         <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
+            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-indigo-700 shadow-md overflow-hidden sm:rounded-lg"
         >
             <slot />
         </div>

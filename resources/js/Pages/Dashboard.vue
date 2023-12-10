@@ -41,12 +41,12 @@ onMounted(() => {
             class="flex justify-center flex-wrap [&>div]:m-2 pt-5 [&>div]:max-h-[30rem]"
         >
             <div
-                class="bg-gray-700 rounded-2xl w-[25rem] h-auto flex-grow"
+                class="bg-indigo-700 rounded-2xl w-[25rem] h-auto flex-grow"
             ></div>
 
             <!--BAR CHART NOT FINAL-->
             <div
-                class="bg-gray-700 rounded-2xl max-w-[45rem] max-h-[30rem] w-auto h-auto flex-grow"
+                class="bg-indigo-700 rounded-2xl max-w-[45rem] max-h-[30rem] w-auto h-auto flex-grow"
             >
                 <h1 class="p-2 text-xl text-white">
                     MONTHLY PERFORMANCE OF BUSSES (NOT ACCURATE)
@@ -55,10 +55,10 @@ onMounted(() => {
             </div>
             <!--BAR CHART END-->
 
-            <div class="bg-gray-700 rounded-2xl w-[20rem] h-auto"></div>
+            <div class="bg-indigo-700 rounded-2xl w-[20rem] h-auto"></div>
 
             <div
-                class="bg-gray-700 text-white rounded-2xl w-[40rem] h-auto flex-grow"
+                class="bg-indigo-700 text-white rounded-2xl w-[40rem] h-auto flex-grow"
             >
                 <div class="graph">
                     <ul class="months">
@@ -80,7 +80,7 @@ onMounted(() => {
                     </ul>
                 </div>
             </div>
-            <div class="bg-gray-700 rounded-2xl w-[20rem] h-auto"></div>
+            <div class="bg-indigo-700 rounded-2xl w-[20rem] h-auto"></div>
         </div>
     </AuthenticatedLayout>
 </template>

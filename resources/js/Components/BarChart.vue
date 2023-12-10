@@ -32,7 +32,7 @@ export default {
                 labels: ["1", "1", "1", "1", "1", "1"],
                 datasets: [
                     {
-                        label: "Most Purchased Bus",
+                        label: "luxury",
                         data: [40, 20, 12, 66, 5, 20],
                         borderColor: "#36A2EB",
                         borderWidth: 1,
@@ -41,7 +41,7 @@ export default {
                         hoverBorderColor: "orange",
                     },
                     {
-                        label: "2nd Most Purchased Bus",
+                        label: "De Luxe",
                         data: [10, 23, 22, 26, 15, 5],
                         borderColor: "#36A2EB",
                         borderWidth: 1,
