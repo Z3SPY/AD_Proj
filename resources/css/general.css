@@ -24,6 +24,14 @@
 /* Article - https://bitsofco.de/github-contribution-graph-css-grid/ */
 
 /* Grid-related CSS */
+html,
+body {
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 :root {
     --square-size: 20px;
@@ -165,7 +173,11 @@ body {
     background-position: center center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: 85vh;
+    height: 90vh;
+}
+
+.navbar-background {
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 991px) {
@@ -174,9 +186,10 @@ body {
     }
 }
 
-.carousel .background.a {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("/storage/pic.png");
+.carousel .background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.774)),
+        url("/pic.png");
+    box-shadow: 0 4px 100px rgba(0, 0, 0, 0.9); /* Add the box shadow effect */
 }
 
 .covertext {
@@ -256,8 +269,200 @@ body {
 
 .data-container {
     background: #ffebee;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*Testimonies*/
+
+.card-container {
+    background-color: rgba(255, 177, 10, 0.3);
+}
+
+.card-container .cards {
+    gap: 10px;
+    margin: 0 10vw;
+}
+
+.pic {
+    border-radius: 100%;
+}
+
+.cards .inner-card {
+    transition: 0.5s all;
+}
+
+.cards .inner-card:hover {
+    transform: translateY(50px);
+}
+
+/*Carousel*/
+
+figure {
+    margin: 0;
+}
+
+.container {
+    width: 500px;
+    height: 300px;
+    text-align: left;
+    margin: 60px auto;
+    -webkit-perspective: 1000px;
+    -webkit-perspective-origin: 50% -25%;
+}
+
+.carousel-3D {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translateZ(-540px);
+    position: relative;
+    margin: 0;
+    width: 550px;
+    height: 300px;
+    -webkit-transition: 1s;
+}
+
+.card-img div {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: opacity 0.1s, background-color 0.5s;
+}
+
+.card-img:hover > div {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-3D .card-img {
+    position: absolute;
+    border: 15px solid rgba(0, 0, 0, 0.8);
+    opacity: 0.5;
+    -webkit-transition: 1s;
+    width: 550px;
+    height: 400px;
+    background: #ccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-3D .card-img:nth-child(1) {
+    -webkit-transform: translateZ(540px) scale(0.8);
+}
+.carousel-3D .card-img:nth-child(2) {
+    -webkit-transform: rotateY(45deg) translateZ(540px) scale(0.8);
+}
+.carousel-3D .card-img:nth-child(3) {
+    -webkit-transform: rotateY(90deg) translateZ(540px) scale(0.8);
+}
+.carousel-3D .card-img:nth-child(4) {
+    -webkit-transform: rotateY(135deg) translateZ(540px) scale(0.8);
+}
+.carousel-3D .card-img:nth-child(5) {
+    -webkit-transform: rotateY(180deg) translateZ(540px) scale(0.8);
+}
+.carousel-3D .card-img:nth-child(6) {
+    -webkit-transform: rotateY(225deg) translateZ(540px) scale(0.8);
+}
+.carousel-3D .card-img:nth-child(7) {
+    -webkit-transform: rotateY(270deg) translateZ(540px) scale(0.8);
+}
+.carousel-3D .card-img:nth-child(8) {
+    -webkit-transform: rotateY(315deg) translateZ(540px) scale(0.8);
+}
+
+label {
+    cursor: pointer;
+    background: #eee;
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    padding-top: 7px;
+    height: 23px;
+    font: 0.9em Arial;
+}
+
+label:hover {
+    background: #ddd;
+}
+
+input {
+    position: absolute;
+    left: -9999px;
+}
+
+input:checked + label {
+    font-weight: bold;
+    background: #ddd;
+}
+
+input[value="1"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px);
+}
+input[value="2"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px) rotateY(-45deg);
+}
+input[value="3"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px) rotateY(-90deg);
+}
+input[value="4"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px) rotateY(-135deg);
+}
+input[value="5"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px) rotateY(-180deg);
+}
+input[value="6"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px) rotateY(-225deg);
+}
+input[value="7"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px) rotateY(-270deg);
+}
+input[value="8"]:checked ~ .container .carousel-3D {
+    -webkit-transform: translateZ(-540px) rotateY(-315deg);
+}
+
+input[value="1"]:checked ~ .container .carousel-3D .card-img:nth-child(1) {
+    -webkit-transform: translateZ(540px) scale(1);
+    opacity: 1;
+}
+input[value="2"]:checked ~ .container .carousel-3D .card-img:nth-child(2) {
+    -webkit-transform: rotateY(45deg) translateZ(540px) scale(1);
+    opacity: 1;
+}
+input[value="3"]:checked ~ .container .carousel-3D .card-img:nth-child(3) {
+    -webkit-transform: rotateY(90deg) translateZ(540px) scale(1);
+    opacity: 1;
+}
+input[value="4"]:checked ~ .container .carousel-3D .card-img:nth-child(4) {
+    -webkit-transform: rotateY(135deg) translateZ(540px) scale(1);
+    opacity: 1;
+}
+input[value="5"]:checked ~ .container .carousel-3D .card-img:nth-child(5) {
+    -webkit-transform: rotateY(180deg) translateZ(540px) scale(1);
+    opacity: 1;
+}
+input[value="6"]:checked ~ .container .carousel-3D .card-img:nth-child(6) {
+    -webkit-transform: rotateY(225deg) translateZ(540px) scale(1);
+    opacity: 1;
+}
+input[value="7"]:checked ~ .container .carousel-3D .card-img:nth-child(7) {
+    -webkit-transform: rotateY(270deg) translateZ(540px) scale(1);
+    opacity: 1;
+}
+input[value="8"]:checked ~ .container .carousel-3D .card-img:nth-child(8) {
+    -webkit-transform: rotateY(315deg) translateZ(540px) scale(1);
+    opacity: 1;
+}
+
+/*CAROUSEL END*/
+
+.about-div {
+    background-color: rgba(255, 177, 10, 0.3);
+}
+
+#AboutUs {
+    padding: 2rem;
 }
