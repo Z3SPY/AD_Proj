@@ -1,9 +1,8 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, router } from "@inertiajs/vue3";
-import { defineProps } from "vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import TextInput from "@/Components/TextInput.vue";
 
@@ -13,7 +12,16 @@ const form = reactive({
     type: "",
 });
 
+const generatedCode = computed(() => {
+    if (form.type && form.capacity) {
+        const randomNumbers = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+        return `${form.type.substring(0, 1).toUpperCase()}${form.capacity} - ${randomNumbers}`;
+    }
+    return "";
+});
+
 function submit() {
+    form.code = generatedCode.value;
     router.post(route("bus.store"), form);
 }
 </script>
@@ -33,12 +41,7 @@ function submit() {
                                 <InputLabel for="code" class="" value="Code" />
                             </div>
                             <div class="block w-full">
-                                <TextInput
-                                    id="origin"
-                                    type="text"
-                                    v-model="form.code"
-                                    required
-                                />
+                                <TextInput id="origin" type="text" v-model="generatedCode" readonly />
                             </div>
                             <InputLabel
                                 for="type"

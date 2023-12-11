@@ -55,6 +55,7 @@ onMounted(() => {
             </div>
             <!--BAR CHART END-->
 
+            <!-- Terminal -->
             <div class="bg-gray-700 rounded-2xl w-[20rem] h-auto"></div>
 
             <div
