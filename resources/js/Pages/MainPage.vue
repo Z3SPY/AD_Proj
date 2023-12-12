@@ -13,16 +13,14 @@ defineProps({
 </script>
 
 <template>
-    <nav
-        class="fixed top-0 z-50 w-full bg-transparent text-white navbar-background"
-    >
+    <nav class="fixed top-0 z-50 w-full bg-indigo-500 border-gray-200">
         <div
             class="max-w-[95%] flex flex-wrap items-center justify-between mx-auto p-4"
         >
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <Link href="/dashboard">
                     <span
-                        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                        class="self-center text-2xl font-semibold whitespace-nowrap text-white"
                         >Partas Bus Inc</span
                     >
                 </Link>
@@ -53,9 +51,8 @@ defineProps({
                 </svg>
             </button>
 
-            <div
-                class="hidden w-full md:block md:w-auto p-0 m-0 mb-14"
-                id="navbar-solid-bg"
+            <h1
+                class="text-2xl absolute left-[40%] font-semibold whitespace-nowrap text-white"
             >
                 <ul
                     class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700"
@@ -68,7 +65,7 @@ defineProps({
                             <Link
                                 v-if="$page.props.auth.user"
                                 :href="route('dashboard')"
-                                class="font-semibold text-2xl text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                class="font-semibold text-2xl text-white hover:underline text dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                             >
                                 Dashboard</Link
                             >
@@ -129,7 +126,9 @@ defineProps({
         </div>
     </nav>
 
-    <div class="dark:border-gray-700 min-h-screen max-h-screen">
+    <div
+        class="p-6 dark:border-gray-700 mt-14 bg-gradient-to-b from-purple-400 to-blue-400 min-h-screen max-h-screen"
+    >
         <div class="container-fluid main">
             <div
                 id="myCarousel"
@@ -137,9 +136,6 @@ defineProps({
                 data-ride="carousel"
                 data-interval="3000"
             >
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active background a"></div>
-                </div>
             </div>
 
             <div class="covertext">

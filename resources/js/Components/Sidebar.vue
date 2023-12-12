@@ -21,12 +21,12 @@ function collapse() {
     <aside
         id="logo-sidebar"
         :class="{ collapsed: !isSidebarOpen }"
-        class="rounded-sm fixed top-0 left-0 z-40 w-64 h-screen pt-10 transition-transform-translate-x-full bg-dark border-r sm:translate-x-0 dark:bg-blue-400 border-gray-800"
+        class="rounded-sm fixed top-0 left-0 z-40 w-64 h-screen pt-10 transition-transform-translate-x-full bg-blue-200 border-r sm:translate-x-0 dark:bg-blue-400 border-blue-400"
         aria-label="Sidebar"
     >
         <button
             id="collapseBtn"
-            class="absolute font-bold tracking-tighter text-4xl top-0 left-[16rem] text-yellow-200 w-auto h-auto hover:bg-yellow-500 hover:text-white px-2 pb-2 rounded-3xl"
+            class="absolute font-bold tracking-tighter text-4xl top-0 left-[16rem] text-yellow-200 w-auto h-auto hover:bg-indigo-600 hover:text-white px-2 pb-2 rounded-3xl"
             @click="
                 () => {
                     collapse();
@@ -40,7 +40,7 @@ function collapse() {
             href="#"
             class="flex flex-col items-center p-5 space-x-3 rtl:space-x-reverse"
         >
-            <Link href="/dashboard" class="pb-10">
+            <Link href="/dashboard" class="pb-5">
                 <img
                     src="/storage/partas_logo.png"
                     class="h-[15rem] absolute top-[-3rem] left-0"
@@ -48,12 +48,12 @@ function collapse() {
             /></Link>
         </a>
 
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-dark mt-5">
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-blue-200 mt-5">
             <ul class="space-y-2 font-medium mt-6">
                 <li>
                     <Link
                         href="/dashboard"
-                        class="flex items-center p-3 text-white rounded-lg hover:bg-white hover:text-black dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -75,7 +75,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/buses"
-                        class="flex items-center p-3 text-white rounded-lg hover:bg-white hover:text-black dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/busroutes"
-                        class="flex items-center p-3 text-white rounded-lg hover:bg-white hover:text-black dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/schedules"
-                        class="flex items-center p-3 text-white rounded-lg hover:bg-white hover:text-black dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/locations"
-                        class="flex items-center p-3 text-white rounded-lg hover:bg-white hover:text-black dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/payments"
-                        class="flex items-center p-3 text-white rounded-lg hover:bg-white hover:text-black dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +196,7 @@ function collapse() {
                     <div class="border-b-4 pb-60 border-gray-500">
                         <Link
                             href="#"
-                            class="flex items-center p-3 text-white rounded-lg hover:bg-white hover:text-black dark:hover:bg-blue-300 group"
+                            class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                         >
                             <svg
                                 class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -228,7 +228,7 @@ function collapse() {
                             @click="dropDown"
                             id="dropdownDefaultButton"
                             data-dropdown-toggle="dropdown"
-                            class="w-full bg-primary text-dark hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-6 text-center inline-flex items-center"
+                            class="w-full bg-indigo-600 text-white hover:bg-purple-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-6 text-center inline-flex items-center"
                             type="button"
                         >
                             <span class="px-10 py-2">{{
@@ -254,11 +254,11 @@ function collapse() {
                         <!--Dropdown Comp-->
                         <div
                             v-show="isDropdownVisible"
-                            class="absolute shadow-2xl p-2 right-[-0.2rem] z-50 text-base top-[-10rem] list-none bg-white divide-y divide-gray-100 rounded dark:bg-gray-700 dark:divide-gray-600"
+                            class="absolute shadow-2xl p-2 right-[-0.2rem] z-50 text-base top-[-10rem] list-none bg-indigo-600 divide-y divide-blue-200 rounded dark:bg-gray-700 dark:divide-gray-600"
                         >
                             <div class="px-4 py-3" role="none">
                                 <p
-                                    class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
+                                    class="text-sm font-medium text-white truncate dark:text-gray-300"
                                     role="none"
                                 >
                                     Email: {{ $page.props.auth.user.email }}
@@ -270,7 +270,7 @@ function collapse() {
                                 <li>
                                     <Link
                                         href="/profile"
-                                        class="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        class="flex px-4 py-2 text-sm text-white hover:bg-blue-200 hover:text-black"
                                         role="menuitem"
                                     >
                                         <svg
@@ -295,7 +295,7 @@ function collapse() {
                                     <Link
                                         :href="route('logout')"
                                         method="post"
-                                        class="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        class="flex px-4 py-2 text-sm text-white hover:bg-blue-200 hover:text-black"
                                         role="menuitem"
                                     >
                                         <svg

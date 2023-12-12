@@ -18,7 +18,7 @@ defineProps({
         <div class="min-h-screen bg-gray-100">
             <Sidebar @childDataEvent="handleChildData" />
 
-            <main class="bg-dark shadow">
+            <main class="bg-gradient-to-b from-purple-400 to-blue-400">
                 <div
                     :class="{ pog: !receivedData }"
                     class="p-4 h-auto min-h-[100vh] sm:ml-64"
