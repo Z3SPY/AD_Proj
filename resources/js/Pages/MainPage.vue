@@ -233,29 +233,78 @@ defineProps({
             Explore the Unseen, Discover the Unforgettable: Visit Destinations
         </h2>
         <div>
-            <input checked id="one" name="multiples" type="radio" value="1" />
-            <label for="one">1</label>
+            <input
+                checked
+                class="inp"
+                id="one"
+                name="multiples"
+                type="radio"
+                value="1"
+            />
+            <label class="lbl" for="one">1</label>
 
-            <input id="two" name="multiples" type="radio" value="2" />
-            <label for="two">2</label>
+            <input
+                class="inp"
+                id="two"
+                name="multiples"
+                type="radio"
+                value="2"
+            />
+            <label class="lbl" for="two">2</label>
 
-            <input id="three" name="multiples" type="radio" value="3" />
-            <label for="three">3</label>
+            <input
+                class="inp"
+                id="three"
+                name="multiples"
+                type="radio"
+                value="3"
+            />
+            <label class="lbl" for="three">3</label>
 
-            <input id="four" name="multiples" type="radio" value="4" />
-            <label for="four">4</label>
+            <input
+                class="inp"
+                id="four"
+                name="multiples"
+                type="radio"
+                value="4"
+            />
+            <label class="lbl" for="four">4</label>
 
-            <input id="five" name="multiples" type="radio" value="5" />
-            <label for="five">5</label>
+            <input
+                class="inp"
+                id="five"
+                name="multiples"
+                type="radio"
+                value="5"
+            />
+            <label class="lbl" for="five">5</label>
 
-            <input id="six" name="multiples" type="radio" value="6" />
-            <label for="six">6</label>
+            <input
+                class="inp"
+                id="six"
+                name="multiples"
+                type="radio"
+                value="6"
+            />
+            <label class="lbl" for="six">6</label>
 
-            <input id="seven" name="multiples" type="radio" value="7" />
-            <label for="seven">7</label>
+            <input
+                class="inp"
+                id="seven"
+                name="multiples"
+                type="radio"
+                value="7"
+            />
+            <label class="lbl" for="seven">7</label>
 
-            <input id="eight" name="multiples" type="radio" value="8" />
-            <label for="eight">8</label>
+            <input
+                class="inp"
+                id="eight"
+                name="multiples"
+                type="radio"
+                value="8"
+            />
+            <label class="lbl" for="eight">8</label>
 
             <div class="container">
                 <div class="carousel-3D">

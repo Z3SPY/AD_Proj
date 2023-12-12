@@ -374,7 +374,7 @@ figure {
     -webkit-transform: rotateY(315deg) translateZ(540px) scale(0.8);
 }
 
-label {
+.lbl {
     cursor: pointer;
     background: #eee;
     display: inline-block;
@@ -385,74 +385,74 @@ label {
     font: 0.9em Arial;
 }
 
-label:hover {
+.lbl:hover {
     background: #ddd;
 }
 
-input {
+.inp {
     position: absolute;
     left: -9999px;
 }
 
-input:checked + label {
+.inp:checked + .lbl {
     font-weight: bold;
     background: #ddd;
 }
 
-input[value="1"]:checked ~ .container .carousel-3D {
+.inp[value="1"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px);
 }
-input[value="2"]:checked ~ .container .carousel-3D {
+.inp[value="2"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px) rotateY(-45deg);
 }
-input[value="3"]:checked ~ .container .carousel-3D {
+.inp[value="3"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px) rotateY(-90deg);
 }
-input[value="4"]:checked ~ .container .carousel-3D {
+.inp[value="4"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px) rotateY(-135deg);
 }
-input[value="5"]:checked ~ .container .carousel-3D {
+.inp[value="5"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px) rotateY(-180deg);
 }
-input[value="6"]:checked ~ .container .carousel-3D {
+.inp[value="6"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px) rotateY(-225deg);
 }
-input[value="7"]:checked ~ .container .carousel-3D {
+.inp[value="7"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px) rotateY(-270deg);
 }
-input[value="8"]:checked ~ .container .carousel-3D {
+.inp[value="8"]:checked ~ .container .carousel-3D {
     -webkit-transform: translateZ(-540px) rotateY(-315deg);
 }
 
-input[value="1"]:checked ~ .container .carousel-3D .card-img:nth-child(1) {
+.inp[value="1"]:checked ~ .container .carousel-3D .card-img:nth-child(1) {
     -webkit-transform: translateZ(540px) scale(1);
     opacity: 1;
 }
-input[value="2"]:checked ~ .container .carousel-3D .card-img:nth-child(2) {
+.inp[value="2"]:checked ~ .container .carousel-3D .card-img:nth-child(2) {
     -webkit-transform: rotateY(45deg) translateZ(540px) scale(1);
     opacity: 1;
 }
-input[value="3"]:checked ~ .container .carousel-3D .card-img:nth-child(3) {
+.inp[value="3"]:checked ~ .container .carousel-3D .card-img:nth-child(3) {
     -webkit-transform: rotateY(90deg) translateZ(540px) scale(1);
     opacity: 1;
 }
-input[value="4"]:checked ~ .container .carousel-3D .card-img:nth-child(4) {
+.inp[value="4"]:checked ~ .container .carousel-3D .card-img:nth-child(4) {
     -webkit-transform: rotateY(135deg) translateZ(540px) scale(1);
     opacity: 1;
 }
-input[value="5"]:checked ~ .container .carousel-3D .card-img:nth-child(5) {
+.inp[value="5"]:checked ~ .container .carousel-3D .card-img:nth-child(5) {
     -webkit-transform: rotateY(180deg) translateZ(540px) scale(1);
     opacity: 1;
 }
-input[value="6"]:checked ~ .container .carousel-3D .card-img:nth-child(6) {
+.inp[value="6"]:checked ~ .container .carousel-3D .card-img:nth-child(6) {
     -webkit-transform: rotateY(225deg) translateZ(540px) scale(1);
     opacity: 1;
 }
-input[value="7"]:checked ~ .container .carousel-3D .card-img:nth-child(7) {
+.inp[value="7"]:checked ~ .container .carousel-3D .card-img:nth-child(7) {
     -webkit-transform: rotateY(270deg) translateZ(540px) scale(1);
     opacity: 1;
 }
-input[value="8"]:checked ~ .container .carousel-3D .card-img:nth-child(8) {
+.inp[value="8"]:checked ~ .container .carousel-3D .card-img:nth-child(8) {
     -webkit-transform: rotateY(315deg) translateZ(540px) scale(1);
     opacity: 1;
 }
