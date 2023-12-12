@@ -21,12 +21,12 @@ function collapse() {
     <aside
         id="logo-sidebar"
         :class="{ collapsed: !isSidebarOpen }"
-        class="rounded-sm fixed top-0 left-0 z-40 w-64 h-screen pt-10 transition-transform-translate-x-full bg-blue-200 border-r sm:translate-x-0 dark:bg-blue-400 border-blue-400"
+        class="rounded-sm fixed top-0 left-0 z-40 w-64 h-screen pt-10 transition-transform-translate-x-full bg-black border-r sm:translate-x-0 border-blue-400"
         aria-label="Sidebar"
     >
         <button
             id="collapseBtn"
-            class="absolute font-bold tracking-tighter text-4xl top-0 left-[16rem] text-yellow-200 w-auto h-auto hover:bg-indigo-600 hover:text-white px-2 pb-2 rounded-3xl"
+            class="absolute font-bold tracking-tighter text-4xl top-0 -right-[3.75rem] text-yellow-200 w-auto h-auto hover:bg-indigo-600 hover:text-white px-2 pb-2"
             @click="
                 () => {
                     collapse();
@@ -48,12 +48,12 @@ function collapse() {
             /></Link>
         </a>
 
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-blue-200 mt-5">
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-black text-white mt-5">
             <ul class="space-y-2 font-medium mt-6">
                 <li>
                     <Link
                         href="/dashboard"
-                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -75,7 +75,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/buses"
-                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/busroutes"
-                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/schedules"
-                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ function collapse() {
                 <li>
                     <Link
                         href="/locations"
-                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
+                        class="flex items-center p-3 rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -167,61 +167,8 @@ function collapse() {
                         >
                     </Link>
                 </li>
-                <li>
-                    <Link
-                        href="/payments"
-                        class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            aria-hidden="true"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
-                            />
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap"
-                            >Payments</span
-                        >
-                    </Link>
-                </li>
-                <li>
-                    <div class="border-b-4 pb-60 border-gray-500">
-                        <Link
-                            href="#"
-                            class="flex items-center p-3 text-black rounded-lg hover:bg-purple-400 hover:text-white dark:hover:bg-blue-300 group"
-                        >
-                            <svg
-                                class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                            >
-                                <path
-                                    d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"
-                                />
-                            </svg>
 
-                            <span class="flex-1 ml-3 whitespace-nowrap"
-                                >Inbox</span
-                            >
-                            <span
-                                class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
-                                >3</span
-                            >
-                        </Link>
-                    </div>
-                </li>
-
-                <li class="absolute bottom-10">
+                <li class="absolute bottom-10 border-t-2 pt-5">
                     <!--Profile Button-->
                     <div>
                         <button
@@ -334,7 +281,7 @@ function collapse() {
 }
 
 #logo-sidebar.collapsed #collapseBtn {
-    transform: scale(-1, 1);
+    transform: scale(1, 1);
     transition: transform 0.5s ease-in-out;
 }
 
@@ -344,7 +291,7 @@ function collapse() {
 }
 
 #logo-sidebar #collapseBtn {
-    transform: scale(1, 1);
+    transform: scale(-1, 1);
     transition: transform 0.5s ease-in-out;
 }
 </style>
