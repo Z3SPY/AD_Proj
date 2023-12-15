@@ -4,6 +4,7 @@
 
 <script>
 import { Bar } from "vue-chartjs";
+import axios from "axios";
 import {
     Chart as ChartJS,
     Title,
@@ -23,74 +24,38 @@ ChartJS.register(
     LinearScale
 );
 
+
 export default {
     name: "BusChartsExample",
     components: { Bar },
     data() {
         return {
             chartData: {
-                labels: ["1", "1", "1", "1", "1", "1"],
-                datasets: [
-                    {
-                        label: "Most Purchased Bus",
-                        data: [40, 20, 12, 66, 5, 20],
-                        borderColor: "#36A2EB",
-                        borderWidth: 1,
-                        backgroundColor: "cyan",
-                        hoverBackgroundColor: "rgba(232,105,90,0.8)",
-                        hoverBorderColor: "orange",
-                    },
-                    {
-                        label: "2nd Most Purchased Bus",
-                        data: [10, 23, 22, 26, 15, 5],
-                        borderColor: "#36A2EB",
-                        borderWidth: 1,
-                        backgroundColor: "white",
-                        hoverBackgroundColor: "rgba(232,105,90,0.8)",
-                        hoverBorderColor: "orange",
-                    },
-                ],
+                labels: [],
+                datasets: [],
             },
             chartOptions: {
-                responsive: true,
-                lineTension: 1,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: "white",
-                            font: {
-                                size: 14,
-                            },
-                        },
-                    },
-                },
-                scales: {
-                    y: {
-                        ticks: {
-                            color: "white",
-                            font: {
-                                size: 14,
-                            },
-                            stepSize: 1,
-                            beginAtZero: true,
-                        },
-                    },
-                    x: {
-                        ticks: {
-                            color: "white",
-
-                            font: {
-                                size: 14,
-                            },
-                            stepSize: 1,
-                            beginAtZero: true,
-                        },
-                    },
-                },
+                // Your existing options
             },
         };
     },
+    methods: {
+        fetchData() {
+            axios.get("/api/chart-data")
+                .then(response => {
+                    this.chartData = response.data;
+                    // You might need to adjust the data structure based on your API response
+                })
+                .catch(error => {
+                    console.error("Error fetching chart data:", error);
+                });
+        },
+    },
+    mounted() {
+        this.fetchData();
+    },
 };
+
 </script>
 
 <!--https://vue-chartjs.org/guide/#updating-charts-->
