@@ -143,17 +143,18 @@ onMounted(() => {
 
             <!--BAR CHART NOT FINAL-->
             <div
-                class="bg-indigo-700 rounded-2xl max-w-[55rem] max-h-[30rem] w-auto h-auto flex-grow hover:bg-black transition duration-100 ease-in-out"
+                class="bg-indigo-700 rounded-2xl max-w-[45rem] text-white max-h-[30rem] w-auto h-auto flex-grow hover:bg-black transition duration-100 ease-in-out"
             >
-                <h1 class="p-2 text-xl text-white">
-                    Number of Buses available
-                </h1>
+                <div class="flex p-5 border-b-4 border-yellow-300 shadow-2xl">
+                    <div class="rounded-xl bg-yellow-300 w-10 h-10"></div>
+                    <h1 class="ml-5 text-3xl">AVAILABLE BUSSES</h1>
+                </div>
                 <BarChart class="p-3" />
             </div>
             <!--BAR CHART END-->
 
             <div
-                class="bg-indigo-700 text-white rounded-2xl w-[40rem] h-auto flex-grow hover:bg-black transition duration-100 ease-in-out"
+                class="bg-indigo-700 text-white rounded-2xl w-[80vw] h-auto flex-grow hover:bg-black transition duration-100 ease-in-out"
             >
                 <div class="graph">
                     <ul class="months">
@@ -175,9 +176,6 @@ onMounted(() => {
                     </ul>
                 </div>
             </div>
-            <div
-                class="bg-indigo-700 rounded-2xl w-[20rem] h-auto hover:bg-black transition duration-100 ease-in-out"
-            ></div>
         </div>
     </AuthenticatedLayout>
 </template>

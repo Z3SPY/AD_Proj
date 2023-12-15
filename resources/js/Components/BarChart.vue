@@ -1,90 +1,103 @@
 <template>
-    <div class="container">
-      <Bar v-if="loaded" :data="chartData"
-      :options="chartOptions" />
+    <div class="justify-center flex">
+        <Bar v-if="loaded" :data="chartData" :options="chartOptions" />
     </div>
-  </template>
-  
-  <script>
-  import { Bar } from 'vue-chartjs'
-  import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-  
-  ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-  
-  export default {
-    name: 'BarChart',
+</template>
+
+<script>
+import { Bar } from "vue-chartjs";
+import {
+    Chart as ChartJS,
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+} from "chart.js";
+
+ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
+    CategoryScale,
+    LinearScale
+);
+
+export default {
+    name: "BarChart",
     components: { Bar },
     data: () => ({
-      loaded: false,
-      chartData: null,
-      chartOptions: {
-        responsive: true,
-        lineTension: 1,
-        plugins: {
-            legend: {
-                labels: {
-                    color: "white",
-                    font: {
-                        size: 14,
+        loaded: false,
+        chartData: null,
+        chartOptions: {
+            responsive: true,
+            lineTension: 1,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "white",
+                        font: {
+                            size: 14,
+                        },
+                    },
+                },
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: "white",
+                        font: {
+                            size: 14,
+                        },
+                        stepSize: 1,
+                        beginAtZero: true,
+                    },
+                },
+                x: {
+                    ticks: {
+                        color: "white",
+                        font: {
+                            size: 14,
+                        },
+                        stepSize: 1,
+                        beginAtZero: true,
                     },
                 },
             },
         },
-        scales: {
-            y: {
-                ticks: {
-                    color: "white",
-                    font: {
-                        size: 14,
-                    },
-                    stepSize: 1,
-                    beginAtZero: true,
-                },
-            },
-            x: {
-                ticks: {
-                    color: "white",
-                    font: {
-                        size: 14,
-                    },
-                    stepSize: 1,
-                    beginAtZero: true,
-                },
-            }
-        }
-
-      }
     }),
-    
-    async mounted() {   
-    this.loaded = false;
 
-    try {
-        const response = await fetch('/api/chart-data');
-        const { busData } = await response.json();
+    async mounted() {
+        this.loaded = false;
 
-        console.log(busData);
+        try {
+            const response = await fetch("/api/chart-data");
+            const { busData } = await response.json();
 
-        const labels = busData.map(item => `${item.type} - ${item.capacity}`);
-        const datasets = [
-            {
-                label: 'Bus Count',
-                backgroundColor: '#FFECD6',
-                data: busData.map(item => item.count),
-            },
-        ];
+            console.log(busData);
 
-        this.chartData = {
-            labels,
-            datasets,
-        };
+            const labels = busData.map(
+                (item) => `${item.type} - ${item.capacity}`
+            );
+            const datasets = [
+                {
+                    label: "Bus Count",
+                    backgroundColor: "#FFECD6",
+                    data: busData.map((item) => item.count),
+                },
+            ];
 
-        this.loaded = true;
-    } catch (e) {
-        console.error(e);
-    }
-    
-}
-  }
-  </script>
-    
+            this.chartData = {
+                labels,
+                datasets,
+            };
+
+            this.loaded = true;
+        } catch (e) {
+            console.error(e);
+        }
+    },
+};
+</script>
