@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bus;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\DB; 
 
 use Inertia\Inertia;
 
@@ -98,34 +99,13 @@ class BusController extends Controller
         to_route('busroutes');
     }
 
-    public function apiIndex()
-    {
-        $buses = Bus::all();
-
-        return response()->json($buses);
-    }
-
     public function chartData()
-{
-    $buses = Bus::all();
-
-    $chartData = [
-        'labels' => $buses->pluck('code')->toArray(),
-        'datasets' => [
-            [
-                'label' => 'Most Purchased Bus',
-                'data' => $buses->pluck('some_field')->toArray(),
-                // Adjust the 'some_field' to the actual field you want to display
-                'borderColor' => "#36A2EB",
-                'borderWidth' => 1,
-                'backgroundColor' => "cyan",
-                'hoverBackgroundColor' => "rgba(232,105,90,0.8)",
-                'hoverBorderColor' => "orange",
-            ],
-            // Add more datasets if needed
-        ],
-    ];
-
-    return response()->json($chartData);
-}
+    {
+        $busCounts = Bus::groupBy('type', 'capacity')
+            ->select('type', 'capacity', DB::raw('count(*) as count'))
+            ->get();
+    
+        return response()->json(['busData' => $busCounts]);
+    }
+    
 }
