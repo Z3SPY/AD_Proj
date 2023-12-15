@@ -97,4 +97,11 @@ class BusController extends Controller
         Bus::destroy($bus->id);
         to_route('busroutes');
     }
+
+    public function apiIndex()
+    {
+        $buses = Bus::all();
+
+        return response()->json($buses);
+    }
 }

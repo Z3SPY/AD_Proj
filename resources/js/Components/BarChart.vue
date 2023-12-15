@@ -23,72 +23,55 @@ ChartJS.register(
     LinearScale
 );
 
+import axios from 'axios';
+
 export default {
+    
     name: "BusChartsExample",
     components: { Bar },
     data() {
         return {
             chartData: {
-                labels: ["1", "1", "1", "1", "1", "1"],
+                labels: [],
                 datasets: [
                     {
-                        label: "luxury",
-                        data: [40, 20, 12, 66, 5, 20],
-                        borderColor: "#36A2EB",
-                        borderWidth: 1,
-                        backgroundColor: "cyan",
-                        hoverBackgroundColor: "rgba(232,105,90,0.8)",
-                        hoverBorderColor: "orange",
+                        label: 'luxury',
+                        data: [],
+                        // ... other dataset properties
                     },
                     {
-                        label: "De Luxe",
-                        data: [10, 23, 22, 26, 15, 5],
-                        borderColor: "#36A2EB",
-                        borderWidth: 1,
-                        backgroundColor: "white",
-                        hoverBackgroundColor: "rgba(232,105,90,0.8)",
-                        hoverBorderColor: "orange",
+                        label: 'De Luxe',
+                        data: [],
+                        // ... other dataset properties
                     },
                 ],
             },
-            chartOptions: {
-                responsive: true,
-                lineTension: 1,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: "white",
-                            font: {
-                                size: 14,
-                            },
-                        },
-                    },
-                },
-                scales: {
-                    y: {
-                        ticks: {
-                            color: "white",
-                            font: {
-                                size: 14,
-                            },
-                            stepSize: 1,
-                            beginAtZero: true,
-                        },
-                    },
-                    x: {
-                        ticks: {
-                            color: "white",
-
-                            font: {
-                                size: 14,
-                            },
-                            stepSize: 1,
-                            beginAtZero: true,
-                        },
-                    },
-                },
-            },
+            // ... other data properties
         };
+    },
+
+    mounted() {
+        this.fetchBusData();
+    },
+
+    methods: {
+        async fetchBusData() {
+            try {
+                const response = await axios.get('/api/buses'); // Adjust the endpoint based on your routes
+                const buses = response.data;
+
+                // Process the data and update your chartData
+                // For example, assuming buses is an array of bus objects with 'type' and 'capacity' properties:
+                this.chartData.labels = buses.map(bus => bus.type);
+                this.chartData.datasets[0].data = buses.map(bus => bus.capacity);
+
+                // ... similar processing for other datasets
+
+                // Update other data properties or options as needed
+            } catch (error) {
+                console.error('Error fetching bus data', error);
+            }
+        },
     },
 };
 </script>
