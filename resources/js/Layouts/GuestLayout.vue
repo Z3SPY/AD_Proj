@@ -1,9 +1,21 @@
 <script setup>
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import { Link } from "@inertiajs/vue3";
+
+import { onMounted } from "vue";
+
+onMounted(() => {
+    // Dynamically add the reCAPTCHA script to the document
+    const script = document.createElement("script");
+    script.src = "https://www.google.com/recaptcha/api.js";
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+});
 </script>
 
 <template>
+    
     <div
         class="min-h-screen bg-gradient-to-b from-purple-400 to-blue-400 py-4 flex flex-col sm:justify-center items-center pt-6 sm:pt-0"
     >

@@ -6,12 +6,17 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 
+
+
 const form = useForm({
     name: "",
     email: "",
     password: "",
     password_confirmation: "",
 });
+
+
+
 
 const submit = () => {
     form.post(route("register"), {
@@ -89,6 +94,10 @@ const submit = () => {
                     :message="form.errors.password_confirmation"
                 />
             </div>
+            <div class="mt-4 justify-center items-center flex">
+                <div class="g-recaptcha" data-sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP" data-callback="onRecaptchaSuccess"></div>
+                <InputError class="mt-2" :message="form.errors.recaptcha" />
+            </div>
 
             <div class="flex items-center justify-end mt-4">
                 <Link
@@ -99,13 +108,25 @@ const submit = () => {
                 </Link>
 
                 <PrimaryButton
-                    class="ml-4"
+                    class="g-recaptcha ml-4"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
                     Register
                 </PrimaryButton>
             </div>
-        </form>
+        </form> 
     </GuestLayout>
 </template>
+
+<script>
+export default {
+    methods: {
+        onRecaptchaSuccess(response) {
+            // Handle reCAPTCHA success
+            console.log("reCAPTCHA success:", response);
+            form.value.recaptcha = response;
+        },
+    },
+};
+</script>
