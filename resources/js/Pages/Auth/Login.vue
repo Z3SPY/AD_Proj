@@ -69,7 +69,16 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
-            <div class="block mt-4">
+            <div class="mt-4 justify-center items-center flex">
+                <div
+                    class="g-recaptcha"
+                    data-sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP"
+                    data-callback="onRecaptchaSuccess"
+                ></div>
+                <InputError class="mt-2" :message="form.errors.recaptcha" />
+            </div>  
+
+            <div class="block mt-10">
                 <label class="flex items-center">
                     <Checkbox name="remember" v-model:checked="form.remember" />
                     <span class="ml-2 text-sm text-white">Remember me</span>

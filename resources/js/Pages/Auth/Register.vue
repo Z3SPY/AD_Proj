@@ -6,22 +6,29 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 
+import { ref } from "vue";
 
+const form = ref(
+    useForm({
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+    })
+);
 
-const form = useForm({
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-});
-
-
-
+const isRecaptchaCompleted = ref(false);
 
 const submit = () => {
     form.post(route("register"), {
         onFinish: () => form.reset("password", "password_confirmation"),
     });
+};
+
+const onRecaptchaSuccess = (response) => {
+    console.log("reCAPTCHA success:", response);
+    form.value.recaptcha = response;
+    isRecaptchaCompleted.value = true; // Set the flag to indicate reCAPTCHA completion
 };
 </script>
 
@@ -95,7 +102,11 @@ const submit = () => {
                 />
             </div>
             <div class="mt-4 justify-center items-center flex">
-                <div class="g-recaptcha" data-sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP" data-callback="onRecaptchaSuccess"></div>
+                <div
+                    class="g-recaptcha"
+                    data-sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP"
+                    data-callback="onRecaptchaSuccess"
+                ></div>
                 <InputError class="mt-2" :message="form.errors.recaptcha" />
             </div>
 
@@ -115,7 +126,7 @@ const submit = () => {
                     Register
                 </PrimaryButton>
             </div>
-        </form> 
+        </form>
     </GuestLayout>
 </template>
 
