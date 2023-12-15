@@ -15,6 +15,7 @@ use Inertia\Inertia;
 use App\Models\Busroute;
 use App\Models\Bus;
 use App\Models\BusSchedule;
+use App\Models\Location;
 use Illuminate\Support\Facades\DB;
 
 
@@ -50,10 +51,13 @@ Route::get('/dashboard', function () {
     $busroutes = Busroute::all();
     $bus = Bus::all();
     $busSchedule = DB::select($query);
+    $locations = Location::all();
+
     return Inertia::render('Dashboard',[
         'busroutes' => $busroutes,//Get Bus Routes // PASSED TO DEFINE PROPS
         'bus' => $bus,
-        'busSchedule' => $busSchedule
+        'busSchedule' => $busSchedule,
+        'locations' => $locations
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

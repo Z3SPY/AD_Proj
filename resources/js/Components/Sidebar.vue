@@ -41,11 +41,13 @@ function collapse() {
             class="flex flex-col items-center p-5 space-x-3 rtl:space-x-reverse"
         >
             <Link href="/dashboard" class="pb-5">
-                <img
-                    src="/storage/partas_logo.png"
-                    class="h-[15rem] absolute top-[-3rem] left-0"
-                    alt="Flowbite Logo"
-            /></Link>
+                <h1
+                    class="text-white text-5xl absolute top-5 left-[3rem] italic"
+                >
+                    PARTAS
+                    <span class="text-xl m-1">admin dashboard</span>
+                </h1>
+            </Link>
         </a>
 
         <div class="h-full px-3 pb-4 overflow-y-auto bg-black text-white mt-5">
@@ -168,7 +170,7 @@ function collapse() {
                     </Link>
                 </li>
 
-                <li class="absolute bottom-10 border-t-2 pt-5">
+                <li class="absolute bottom-10 border-t-2 pt-5 max-w-[14rem]">
                     <!--Profile Button-->
                     <div>
                         <button
@@ -178,7 +180,7 @@ function collapse() {
                             class="w-full bg-indigo-600 text-white hover:bg-purple-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-6 text-center inline-flex items-center"
                             type="button"
                         >
-                            <span class="px-10 py-2">{{
+                            <span class="px-auto py-2">{{
                                 $page.props.auth.user.name.toUpperCase()
                             }}</span>
                             <svg
@@ -201,7 +203,7 @@ function collapse() {
                         <!--Dropdown Comp-->
                         <div
                             v-show="isDropdownVisible"
-                            class="absolute shadow-2xl p-2 right-[-0.2rem] z-50 text-base top-[-10rem] list-none bg-indigo-600 divide-y divide-blue-200 rounded dark:bg-gray-700 dark:divide-gray-600"
+                            class="absolute shadow-2xl p-2 px-6 right-[-0.2rem] z-50 text-base top-[-10rem] list-none bg-indigo-600 divide-y divide-blue-200 rounded dark:bg-gray-700 dark:divide-gray-600"
                         >
                             <div class="px-4 py-3" role="none">
                                 <p
