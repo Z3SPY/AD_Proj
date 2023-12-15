@@ -4,6 +4,7 @@ use App\Http\Controllers\BusScheduleController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BusController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +40,5 @@ Route::post('/reservations', [ReservationsController::class, 'showAPI'])->name('
 
 
 
+Route::get('/chart-data', [BusController::class, 'chartData'])->name('bus.chartData');
 

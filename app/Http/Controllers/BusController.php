@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bus;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\DB; 
 
 use Inertia\Inertia;
 
@@ -97,4 +98,14 @@ class BusController extends Controller
         Bus::destroy($bus->id);
         to_route('busroutes');
     }
+
+    public function chartData()
+    {
+        $busCounts = Bus::groupBy('type', 'capacity')
+            ->select('type', 'capacity', DB::raw('count(*) as count'))
+            ->get();
+    
+        return response()->json(['busData' => $busCounts]);
+    }
+    
 }

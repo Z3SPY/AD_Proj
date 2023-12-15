@@ -1,97 +1,90 @@
 <template>
-    <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
-</template>
-
-<script>
-import { Bar } from "vue-chartjs";
-import {
-    Chart as ChartJS,
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale,
-} from "chart.js";
-
-ChartJS.register(
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale
-);
-
-export default {
-    name: "BusChartsExample",
+    <div class="container">
+      <Bar v-if="loaded" :data="chartData"
+      :options="chartOptions" />
+    </div>
+  </template>
+  
+  <script>
+  import { Bar } from 'vue-chartjs'
+  import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+  
+  ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+  
+  export default {
+    name: 'BarChart',
     components: { Bar },
-    data() {
-        return {
-            chartData: {
-                labels: ["1", "1", "1", "1", "1", "1"],
-                datasets: [
-                    {
-                        label: "luxury",
-                        data: [40, 20, 12, 66, 5, 20],
-                        borderColor: "#36A2EB",
-                        borderWidth: 1,
-                        backgroundColor: "cyan",
-                        hoverBackgroundColor: "rgba(232,105,90,0.8)",
-                        hoverBorderColor: "orange",
-                    },
-                    {
-                        label: "De Luxe",
-                        data: [10, 23, 22, 26, 15, 5],
-                        borderColor: "#36A2EB",
-                        borderWidth: 1,
-                        backgroundColor: "white",
-                        hoverBackgroundColor: "rgba(232,105,90,0.8)",
-                        hoverBorderColor: "orange",
-                    },
-                ],
-            },
-            chartOptions: {
-                responsive: true,
-                lineTension: 1,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: "white",
-                            font: {
-                                size: 14,
-                            },
-                        },
+    data: () => ({
+      loaded: false,
+      chartData: null,
+      chartOptions: {
+        responsive: true,
+        lineTension: 1,
+        plugins: {
+            legend: {
+                labels: {
+                    color: "white",
+                    font: {
+                        size: 14,
                     },
                 },
-                scales: {
-                    y: {
-                        ticks: {
-                            color: "white",
-                            font: {
-                                size: 14,
-                            },
-                            stepSize: 1,
-                            beginAtZero: true,
-                        },
+            },
+        },
+        scales: {
+            y: {
+                ticks: {
+                    color: "white",
+                    font: {
+                        size: 14,
                     },
-                    x: {
-                        ticks: {
-                            color: "white",
+                    stepSize: 1,
+                    beginAtZero: true,
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                    font: {
+                        size: 14,
+                    },
+                    stepSize: 1,
+                    beginAtZero: true,
+                },
+            }
+        }
 
-                            font: {
-                                size: 14,
-                            },
-                            stepSize: 1,
-                            beginAtZero: true,
-                        },
-                    },
-                },
+      }
+    }),
+    
+    async mounted() {   
+    this.loaded = false;
+
+    try {
+        const response = await fetch('/api/chart-data');
+        const { busData } = await response.json();
+
+        console.log(busData);
+
+        const labels = busData.map(item => `${item.type} - ${item.capacity}`);
+        const datasets = [
+            {
+                label: 'Bus Count',
+                backgroundColor: '#FFECD6',
+                data: busData.map(item => item.count),
             },
+        ];
+
+        this.chartData = {
+            labels,
+            datasets,
         };
-    },
-};
-</script>
 
-<!--https://vue-chartjs.org/guide/#updating-charts-->
-<!--https://www.chartjs.org/docs/latest/general/colors.html-->
+        this.loaded = true;
+    } catch (e) {
+        console.error(e);
+    }
+    
+}
+  }
+  </script>
+    
