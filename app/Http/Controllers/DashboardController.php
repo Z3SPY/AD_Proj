@@ -11,7 +11,7 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    public function index()
+    /*public function index()
     {
 
         $busroutes = Busroute::all();
@@ -28,5 +28,5 @@ class DashboardController extends Controller
             'bus' => $bus,
             'busschedule' => $busschedule
         ]);
-    }
+    }*/
 }

@@ -79,7 +79,7 @@ defineProps({
                                 >
                                     <Link
                                         :href="route('login')"
-                                        class="flex items-center font-semibold text-xl text-white border-2 border-gray-500 hover:text-orange-400 hover:border-orange-400 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                        class="flex items-center font-semibold text-xl text-white border-2 border-yellow-500 hover:text-orange-400 hover:border-orange-400 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"

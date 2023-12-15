@@ -15,6 +15,8 @@ use Inertia\Inertia;
 use App\Models\Busroute;
 use App\Models\Bus;
 use App\Models\BusSchedule;
+use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +38,22 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
+    $query="SELECT  bus_schedules.id AS id,type, code, origin,destination,
+               DATE_FORMAT(departure_time,'%M %d %Y - %r') AS departure_time,
+               DATE_FORMAT(arrival_time,' %M %d %Y - %r') AS arrival_time
+               FROM  bus_schedules
+               INNER JOIN bus_routes on bus_routes.id = bus_schedules.route_id
+               INNER JOIN buses on buses.id = bus_schedules.bus_id";
+
+    
     $busroutes = Busroute::all();
     $bus = Bus::all();
-    $busschedule = BusSchedule::all();
+    $busSchedule = DB::select($query);
     return Inertia::render('Dashboard',[
         'busroutes' => $busroutes,//Get Bus Routes // PASSED TO DEFINE PROPS
         'bus' => $bus,
-        'busschedule' => $busschedule
+        'busSchedule' => $busSchedule
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
