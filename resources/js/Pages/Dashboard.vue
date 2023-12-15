@@ -49,7 +49,7 @@ onMounted(() => {
                 class="bg-indigo-700 rounded-2xl max-w-[45rem] max-h-[30rem] w-auto h-auto flex-grow"
             >
                 <h1 class="p-2 text-xl text-white">
-                    MONTHLY PERFORMANCE OF BUSSES (NOT ACCURATE)
+                    Number of Buses available
                 </h1>
                 <BarChart class="p-3" />
             </div>

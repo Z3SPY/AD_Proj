@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-      <Bar v-if="loaded" :data="chartData" />
+      <Bar v-if="loaded" :data="chartData"
+      :options="chartOptions" />
     </div>
   </template>
   
@@ -15,8 +16,46 @@
     components: { Bar },
     data: () => ({
       loaded: false,
-      chartData: null
+      chartData: null,
+      chartOptions: {
+        responsive: true,
+        lineTension: 1,
+        plugins: {
+            legend: {
+                labels: {
+                    color: "white",
+                    font: {
+                        size: 14,
+                    },
+                },
+            },
+        },
+        scales: {
+            y: {
+                ticks: {
+                    color: "white",
+                    font: {
+                        size: 14,
+                    },
+                    stepSize: 1,
+                    beginAtZero: true,
+                },
+            },
+            x: {
+                ticks: {
+                    color: "white",
+                    font: {
+                        size: 14,
+                    },
+                    stepSize: 1,
+                    beginAtZero: true,
+                },
+            }
+        }
+
+      }
     }),
+    
     async mounted() {   
     this.loaded = false;
 
