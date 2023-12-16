@@ -21,10 +21,15 @@ const form = useForm(
 const isRecaptchaCompleted = ref(false);
 
 const submit = () => {
+    if (isRecaptchaCompleted.value === true) {
         form.post(route("register"), {
             onFinish: () => form.reset("password", "password_confirmation"),
         });
     
+    } else {
+        alert("Please answer the Recaptcha");
+    }
+       
 };
 
 const onRecaptchaSuccess = (response) => {
@@ -125,7 +130,7 @@ const onRecaptchaSuccess = (response) => {
                 <PrimaryButton
                     class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing || !isRecaptchaCompleted "
+                    :disabled="form.processing"
                 >
                     Register
                 </PrimaryButton>
