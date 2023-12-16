@@ -41,14 +41,14 @@ onMounted(() => {
                 class="bg-indigo-700 w-[15%] mx-1 rounded-3xl flex-grow hover:bg-black transition duration-200 ease-in-out"
             >
                 <h1 class="p-3 text-xl font-bold">ACTIVE BUSES</h1>
-                <h1 class="text-4xl italic pr-10 text-right p-2">
+                <h1 class="text-4xl italic pr-10 text-right">
                     {{ busvalues.bus.length }}
                 </h1>
             </div>
             <div
                 class="bg-indigo-700 w-[15%] mx-1 rounded-3xl flex-grow hover:bg-black transition duration-200 ease-in-out"
             >
-                <h1 class="p-3 text-xl font-bold">ESTABLISHED STATIONS</h1>
+                <h1 class="p-3 text-xl font-bold"> STATIONS</h1>
                 <h1 class="text-4xl italic pr-10 text-right">
                     {{ busvalues.busroutes.length }}
                 </h1>
@@ -178,6 +178,7 @@ onMounted(() => {
 .move-left:hover {
     transform: translateX(-10px); /* Adjust the value as needed */
 }
+
 </style>
 
 <script>

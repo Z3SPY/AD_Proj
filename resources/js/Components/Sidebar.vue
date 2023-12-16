@@ -170,9 +170,9 @@ function collapse() {
                     </Link>
                 </li>
 
-                <li class="absolute bottom-10 border-t-2 pt-5 max-w-[14rem]">
+                <li class="absolute bottom-10 border-t-2 pt-5 w-11/12">
                     <!--Profile Button-->
-                    <div>
+                    <div class="">
                         <button
                             @click="dropDown"
                             id="dropdownDefaultButton"
@@ -180,7 +180,7 @@ function collapse() {
                             class="w-full bg-indigo-600 text-white hover:bg-purple-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-6 text-center inline-flex items-center"
                             type="button"
                         >
-                            <span class="px-auto py-2">{{
+                            <span class="w-full px-auto py-2 truncate">{{
                                 $page.props.auth.user.name.toUpperCase()
                             }}</span>
                             <svg
