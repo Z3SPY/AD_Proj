@@ -6,6 +6,9 @@ import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
+import { ref } from "vue";
+import vueRecaptcha from "vue3-recaptcha2";
+
 
 defineProps({
     canResetPassword: {
@@ -16,6 +19,7 @@ defineProps({
     },
 });
 
+
 const form = useForm({
     email: "",
     password: "",
@@ -23,10 +27,25 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("login"), {
+    if (isRecaptchaCompleted.value === true)
+    {
+        form.post(route("login"), {
         onFinish: () => form.reset("password"),
     });
+    }else {
+        alert("Please answer the Recaptcha")
+    }
+    
 };
+
+const isRecaptchaCompleted = ref(false);
+const onRecaptchaSuccess = (response) => {
+    console.log(!isRecaptchaCompleted)
+    isRecaptchaCompleted.value = true;
+    console.log("reCAPTCHA success:", response, isRecaptchaCompleted);
+    console.log(isRecaptchaCompleted.value)
+};
+
 </script>
 
 <template>
@@ -70,11 +89,12 @@ const submit = () => {
             </div>
 
             <div class="mt-4 justify-center items-center flex">
-                <div
-                    class="g-recaptcha"
-                    data-sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP"
-                    data-callback="onRecaptchaSuccess"
-                ></div>
+                <vueRecaptcha
+                    ref="recaptcha"
+                    sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP"
+                    @verify="onRecaptchaSuccess"
+                >
+                </vueRecaptcha>
                 <InputError class="mt-2" :message="form.errors.recaptcha" />
             </div>  
 
@@ -97,7 +117,7 @@ const submit = () => {
                 <PrimaryButton
                     class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
+                    :disabled="form.processing  "
                 >
                     Log in
                 </PrimaryButton>
