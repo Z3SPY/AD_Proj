@@ -27,6 +27,9 @@ const submit = () => {
         onFinish: () => form.reset("password"),
     });
 };
+
+const isRecaptchaCompleted = ref(false);
+
 </script>
 
 <template>

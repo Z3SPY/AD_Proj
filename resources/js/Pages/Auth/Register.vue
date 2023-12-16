@@ -5,10 +5,11 @@ import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
+import vueRecaptcha from "vue3-recaptcha2";
 
 import { ref } from "vue";
 
-const form = ref(
+const form = useForm(
     useForm({
         name: "",
         email: "",
@@ -20,15 +21,17 @@ const form = ref(
 const isRecaptchaCompleted = ref(false);
 
 const submit = () => {
-    form.post(route("register"), {
-        onFinish: () => form.reset("password", "password_confirmation"),
-    });
+        form.post(route("register"), {
+            onFinish: () => form.reset("password", "password_confirmation"),
+        });
+    
 };
 
 const onRecaptchaSuccess = (response) => {
-    console.log("reCAPTCHA success:", response);
-    form.value.recaptcha = response;
-    isRecaptchaCompleted.value = true; // Set the flag to indicate reCAPTCHA completion
+    console.log(!isRecaptchaCompleted)
+    isRecaptchaCompleted.value = true;
+    console.log("reCAPTCHA success:", response, isRecaptchaCompleted);
+    console.log(isRecaptchaCompleted.value)
 };
 </script>
 
@@ -102,11 +105,12 @@ const onRecaptchaSuccess = (response) => {
                 />
             </div>
             <div class="mt-4 justify-center items-center flex">
-                <div
-                    class="g-recaptcha"
-                    data-sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP"
-                    data-callback="onRecaptchaSuccess"
-                ></div>
+                <vueRecaptcha
+                    ref="recaptcha"
+                    sitekey="6LdvlzIpAAAAAJRKwI-Cc4uTOZ-zzNpWeRuOxFVP"
+                    @verify="onRecaptchaSuccess"
+                >
+                </vueRecaptcha>
                 <InputError class="mt-2" :message="form.errors.recaptcha" />
             </div>
 
@@ -119,9 +123,9 @@ const onRecaptchaSuccess = (response) => {
                 </Link>
 
                 <PrimaryButton
-                    class="g-recaptcha ml-4"
+                    class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
+                    :disabled="form.processing || !isRecaptchaCompleted "
                 >
                     Register
                 </PrimaryButton>
@@ -129,15 +133,3 @@ const onRecaptchaSuccess = (response) => {
         </form>
     </GuestLayout>
 </template>
-
-<script>
-export default {
-    methods: {
-        onRecaptchaSuccess(response) {
-            // Handle reCAPTCHA success
-            console.log("reCAPTCHA success:", response);
-            form.value.recaptcha = response;
-        },
-    },
-};
-</script>
